@@ -12,33 +12,21 @@ import {
   View,
   Navigator
 } from 'react-native';
-import MainView from './MainView';
-import Plim from './Plim';
 
-//var MainView = require('./MainView');
-
-class must extends Component {
-  render() {	
-    return(
-		<Navigator
-			style={{flex: 1}}
-			initialRoute={{id: 'Main'}}
-			renderScene={this.renderScene}
-		/>
-	)
+export default React.createClass({
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.main}>
+          <Text style={styles.welcome}
+		  onPress={() => this.props.navigator.pop()}>
+            MUST
+          </Text>
+        </View>
+      </View>
+    );
   }
-  
-  renderScene(route, navigator) {
-	switch(route.id) {
-		case 'Main':
-			return <MainView navigator={navigator} title="Pistelista" />;
-		case 'Plim':
-			return <Plim navigator={navigator} title="Sait pisteitä!" />;
-	}
-  }
-  
-}
-
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -63,5 +51,3 @@ const styles = StyleSheet.create({
     margin: 10,
   },
 });
-
-AppRegistry.registerComponent('must', () => must);
