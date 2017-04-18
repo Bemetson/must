@@ -10,6 +10,7 @@
     "nfc-react-native": "^0.4.4",
     "react": "15.4.2",
     "react-native": "0.42.3",
+    "react-native-android-back-button": "^0.3.0",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0"
   },

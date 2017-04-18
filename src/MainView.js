@@ -56,6 +56,12 @@ class MainView extends Component {
                 }} >
             {this.props.points} p
           </Text>
+          <Text style={{textAlign: 'center', color: '#333', fontWeight: 'bold', fontSize: 25}}
+                onPress={() => {
+                  this.props.navigator.push({id: 'Break'});
+                }} >
+            Nyt on tauko!
+          </Text>
         </View>
 
         <ScrollView style={styles.main}>

@@ -9,6 +9,7 @@ import {
   Navigator,
 } from 'react-native';
 import { connect } from 'react-redux';
+import AndroidBackButton from "react-native-android-back-button";
 
 
 class ProductView extends Component {
@@ -37,6 +38,11 @@ class ProductView extends Component {
             />
           </View>
         </View>
+        <AndroidBackButton
+          onPress={() => {
+            this.props.navigator.pop()
+            return true;
+          }} />
       </View>
     );
   }

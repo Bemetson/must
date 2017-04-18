@@ -8,6 +8,8 @@ import {
   Button,
   Navigator,
 } from 'react-native';
+import AndroidBackButton from "react-native-android-back-button";
+
 
 export default class GotPointsView extends Component {
   render() {
@@ -29,6 +31,11 @@ export default class GotPointsView extends Component {
               />
           </View>
         </View>
+        <AndroidBackButton
+          onPress={() => {
+            this.props.navigator.pop()
+            return true;
+          }} />
       </View>
     );
   }

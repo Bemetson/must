@@ -10,16 +10,13 @@ import { Provider } from 'react-redux'
 import MainView from './src/MainView';
 import ProductView from './src/ProductView';
 import GotPointsView from './src/GotPointsView';
+import BreakView from './src/BreakView';
 import pointStore from './src/PointStore';
 
 
 const store = createStore(pointStore);
 
 class must extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <Provider store={store}>
@@ -39,6 +36,8 @@ class must extends Component {
         return <ProductView navigator={navigator} product={route.product} />;
       case 'GotPoints':
         return <GotPointsView navigator={navigator} />;
+      case 'Break':
+        return <BreakView navigator={navigator} />;
     }
   }
 }
