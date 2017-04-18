@@ -8,11 +8,10 @@ import {
   Button,
   Navigator,
 } from 'react-native';
+import { connect } from 'react-redux';
 
-export default class ProductView extends Component {
-  constructor(props) {
-    super(props);
-  }
+
+class ProductView extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -21,6 +20,15 @@ export default class ProductView extends Component {
           <View style={{flex: 1, padding: 20}}>
             <Text style={{flex: 1, textAlign: 'center', color: '#333', fontWeight: 'normal', fontSize: 20}}>{this.props.product.name}</Text>
             <Text style={{flex: 1, textAlign: 'center', color: '#333', fontWeight: 'bold', fontSize: 25}}>{this.props.product.price} p</Text>
+            <Button onPress={() => {
+                this.props.buyProduct(this.props.product.price);
+                this.props.navigator.pop();
+              }}
+              title="Osta"
+              color="#8BC34A"
+              accessibilityLabel="Buy the product"
+              disabled={this.props.points < this.props.product.price}
+            />
             <Text style={{flex: 1, textAlign: 'center', color: '#333', fontWeight: 'normal', fontSize: 18}}>Osta tuote koskettamalla{"\n"}automaattia laitteellasi.</Text>
             <Button onPress={() => this.props.navigator.pop()}
               title="Peruuta"
@@ -33,6 +41,13 @@ export default class ProductView extends Component {
     );
   }
 }
+
+export default connect(
+  state => ({ points: state.points }),
+  dispatch => ({
+    buyProduct: (price) => dispatch({ type: 'BUY_PRODUCT', price: price })
+  })
+)(ProductView);
 
 const styles = StyleSheet.create({
   container: {
@@ -51,3 +66,4 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
 });
+

@@ -8,9 +8,10 @@ import {
   StyleSheet,
   Text,
   ToolbarAndroid,
-  View,
   TouchableHighlight,
+  View,
 } from 'react-native';
+import { connect } from 'react-redux';
 import nativeImageSource from 'nativeImageSource';
 
 
@@ -43,17 +44,17 @@ const products = [
   },
 ];
 
-export default class MainView extends Component {
-  constructor(props) {
-    super(props);
-  }
+class MainView extends Component {
   render() {
     return (
       <View style={styles.container}>
         <View style={{height: 100, backgroundColor: 'white', elevation: 4, justifyContent: 'center'}}>
           <Text style={{textAlign: 'center', color: '#333', fontWeight: 'bold', fontSize: 25}}
-                onPress={() => this.props.navigator.push({id: 'GotPoints'})}>
-            123 000 p
+                onPress={() => {
+                  this.props.navigator.push({id: 'GotPoints'});
+                  this.props.receivePoints(1000);
+                }} >
+            {this.props.points} p
           </Text>
         </View>
 
@@ -81,6 +82,12 @@ export default class MainView extends Component {
   }
 }
 
+export default connect(
+  state => ({ points: state.points }),
+  dispatch => ({
+    receivePoints: (points) => dispatch({ type: 'INCREASE_POINTS', points: points })
+  })
+)(MainView);
 
 const styles = StyleSheet.create({
   container: {

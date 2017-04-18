@@ -10,9 +10,6 @@ import {
 } from 'react-native';
 
 export default class GotPointsView extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <View style={styles.container}>
