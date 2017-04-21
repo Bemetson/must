@@ -3,7 +3,7 @@ import {
   AppRegistry,
   BackAndroid,
   Button,
-  Image,
+
   Navigator,
   StyleSheet,
   Text,
@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import AndroidBackButton from "react-native-android-back-button";
-
+import Image from 'react-native-transformable-image';
 
 class BreakView extends Component {
   render() {
@@ -28,8 +28,11 @@ class BreakView extends Component {
               Aalto-yliopisto{"\n"}
             </Text>
           </View>
-          <Image source={require("./ok1.jpg")} style={{flex: 0, width: "100%", margin: 20, backgroundColor: 'white'}} resizeMode='contain' />
+		  
         </View>
+		<View style={{flex:2, alignItems:'center', justifyContent:'center', backgroundColor: '#f9f9f9'}}>
+			<Image source={require("./ok1.jpg")} style={{width: '100%', height: '100%'}} resizeMode='contain' pixels={{width: 2000, height: 2000}}/>
+		</View>
         <AndroidBackButton
           onPress={() => {
             this.props.navigator.pop()
@@ -58,8 +61,9 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'white',
     elevation: 2,
   },
 });
 
+//<Image source={require("./ok1.jpg")} style={{flex: 0, width: "100%", margin: 20, backgroundColor: 'white'}} resizeMode='contain' />
