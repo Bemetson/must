@@ -12,26 +12,29 @@ import MainView from './src/MainView';
 import ProductView from './src/ProductView';
 import GotPointsView from './src/GotPointsView';
 import BreakView from './src/BreakView';
+import ProductBoughtView from './src/ProductBoughtView';
 import pointStore from './src/PointStore';
 
 
 const store = createStore(pointStore);
 
 class must extends Component {
-  componentDidMount() {
+  componentWillMount() {
     var nfcListener = DeviceEventEmitter.addListener('NFCCardID', (data) => {
       console.log("NFC ID", data.id);
 
       const pistepompeliId = "046F7C52872680";
-      const automaattiId = "02190B17";
 
       if (data.id === pistepompeliId) {
         this.refs.nav.push({id: 'GotPoints', points: 1000});
-      } else if (data.id === automaattiId) {
-        console.log("Plim! Osto onnistui.");
       }
     });
   }
+  componentWillUnmount() {
+    this.nfcListener.remove();
+  }
+
+
 
   render() {
     return (
@@ -55,6 +58,8 @@ class must extends Component {
         return <GotPointsView navigator={navigator} newPoints={route.points} />;
       case 'Break':
         return <BreakView navigator={navigator} />;
+      case 'ProductBought':
+        return <ProductBoughtView navigator={navigator} product={route.product} />;
     }
   }
 }

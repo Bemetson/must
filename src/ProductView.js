@@ -7,12 +7,34 @@ import {
   Image,
   Button,
   Navigator,
+  DeviceEventEmitter,
 } from 'react-native';
 import { connect } from 'react-redux';
 import AndroidBackButton from "react-native-android-back-button";
 
 
 class ProductView extends Component {
+  componentWillMount() {
+    this.nfcListener = null;
+    if (this.props.product.price <= this.props.points) {
+      this.nfcListener = DeviceEventEmitter.addListener('NFCCardID', (data) => {
+        console.log("NFC ID", data.id);
+
+        const automaattiId = "02190B17";
+
+        if (data.id === automaattiId) {
+          this.props.navigator.push({id: 'ProductBought', product: this.props.product});
+        }
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.nfcListener) {
+      this.nfcListener.remove();
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -21,18 +43,14 @@ class ProductView extends Component {
           <View style={{flex: 1, padding: 20}}>
             <Text style={{flex: 1, textAlign: 'center', color: '#333', fontWeight: 'normal', fontSize: 20}}>{this.props.product.name}</Text>
             <Text style={{flex: 1, textAlign: 'center', color: '#333', fontWeight: 'bold', fontSize: 25}}>{this.props.product.price} p</Text>
-            <Button onPress={() => {
-                this.props.buyProduct(this.props.product.price);
-                this.props.navigator.pop();
-              }}
-              title="Osta"
-              color="#8BC34A"
-              accessibilityLabel="Buy the product"
-              disabled={this.props.points < this.props.product.price}
-            />
-            <Text style={{flex: 1, textAlign: 'center', color: '#333', fontWeight: 'normal', fontSize: 18}}>Osta tuote koskettamalla{"\n"}automaattia laitteellasi.</Text>
+            <Text style={{flex: 1, textAlign: 'center', color: '#333', fontWeight: 'normal', fontSize: 18}}>
+              { (this.props.product.price <= this.props.points)
+                  ? "Osta tuote koskettamalla\nautomaattia laitteellasi."
+                  : "Sinulla ei ole vielä tarpeeksi pisteitä tämän tuotteen ostamiseen."
+              }
+            </Text>
             <Button onPress={() => this.props.navigator.pop()}
-              title="Peruuta"
+              title="Takaisin"
               color="#8BC34A"
               accessibilityLabel="Cancel buying the product"
             />
