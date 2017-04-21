@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  Navigator
+  Navigator,
+  DeviceEventEmitter,
 } from 'react-native';
 
 import { createStore } from 'redux';
-import { Provider } from 'react-redux'
+import { Provider, connect } from 'react-redux'
 
 import MainView from './src/MainView';
 import ProductView from './src/ProductView';
@@ -17,13 +18,29 @@ import pointStore from './src/PointStore';
 const store = createStore(pointStore);
 
 class must extends Component {
+  componentDidMount() {
+    var nfcListener = DeviceEventEmitter.addListener('NFCCardID', (data) => {
+      console.log("NFC ID", data.id);
+
+      const pistepompeliId = "046F7C52872680";
+      const automaattiId = "02190B17";
+
+      if (data.id === pistepompeliId) {
+        this.refs.nav.push({id: 'GotPoints', points: 1000});
+      } else if (data.id === automaattiId) {
+        console.log("Plim! Osto onnistui.");
+      }
+    });
+  }
+
   render() {
     return (
       <Provider store={store}>
         <Navigator
-        style={{flex: 1}}
-        initialRoute={{id: 'Main'}}
-        renderScene={this.renderScene} />
+          ref="nav"
+          style={{flex: 1}}
+          initialRoute={{id: 'Main'}}
+          renderScene={this.renderScene} />
       </Provider>
     );
   }
@@ -35,11 +52,12 @@ class must extends Component {
       case 'Product':
         return <ProductView navigator={navigator} product={route.product} />;
       case 'GotPoints':
-        return <GotPointsView navigator={navigator} />;
+        return <GotPointsView navigator={navigator} newPoints={route.points} />;
       case 'Break':
         return <BreakView navigator={navigator} />;
     }
   }
 }
+
 
 AppRegistry.registerComponent('must', () => must);
