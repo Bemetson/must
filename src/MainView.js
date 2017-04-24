@@ -79,8 +79,8 @@ class MainView extends Component {
 
   productList() {
     return products.map((product, i) =>
-      <TouchableHighlight key={i} underlayColor="white" onPress={() => this.props.navigator.push({id: 'Product', product: product})}>
-        <View style={{margin: 10, marginBottom: 0, height: itemHeight, backgroundColor: 'white', elevation: 3, flex: 1, flexDirection: 'row'}}>
+      <TouchableHighlight key={i} underlayColor="#8BC34A" onPress={() => this.props.navigator.push({id: 'Product', product: product})}>
+        <View style={{margin: 10, marginBottom: 0, height: itemHeight, backgroundColor: 'white', elevation: 30, flex: 1, flexDirection: 'row'}}>
           <Image source={product.image} style={{width: itemHeight-product.imageMargin*2, height: itemHeight-product.imageMargin*2, backgroundColor: 'white', margin: product.imageMargin}} resizeMode='contain' />
           <View style={{flex: 1, padding: 20}}>
             <Text style={{flex: 2, textAlign: 'center', color: '#333', fontWeight: 'normal', fontSize: 20}}>{product.name}</Text>
