@@ -45,19 +45,27 @@ const products = [
 ];
 
 class MainView extends Component {
+  
   render() {
     return (
       <View style={styles.container}>
-        <View style={{height: 100, backgroundColor: 'white', elevation: 4, justifyContent: 'center'}}>
-          <Text style={{textAlign: 'center', color: '#333', fontWeight: 'bold', fontSize: 25}}>
-            {this.props.points} p
+        <View style={{height: 120, backgroundColor: 'white', elevation: 4}}>
+          <Text style={{textAlign: 'center', color: '#333', fontWeight: 'bold', fontSize: 15, marginTop: '1%'}}>
+            Pistemääräsi:
           </Text>
-          <Text style={{textAlign: 'center', color: '#333', fontWeight: 'bold', fontSize: 25}}
-                onPress={() => {
-                  this.props.navigator.push({id: 'Break'});
-                }} >
-            Nyt on tauko!
+		  <Text style={{textAlign: 'center', color: '#333', fontWeight: 'bold', fontSize: 20}}>
+           {this.props.points} p
           </Text>
+		  <Text style={{textAlign: 'center', color: '#333', fontWeight: 'bold', fontSize: 20, color: '#8BC34A'}}>
+           Nyt on tauko!
+          </Text>
+		  <View style={{marginBottom: '0%', marginLeft: '10%', marginRight: '10%'}}>
+		  <Button
+			onPress={ () => {this.props.navigator.push({id: 'Break'});}}
+			title='Näytä pistepömpelin paikka'
+			color='#8BC34A'
+		  />
+		  </View>
         </View>
 
         <ScrollView style={styles.main}>

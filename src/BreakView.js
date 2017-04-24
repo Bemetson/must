@@ -31,7 +31,7 @@ class BreakView extends Component {
 		  
         </View>
 		<View style={{flex:2, alignItems:'center', justifyContent:'center', backgroundColor: '#f9f9f9'}}>
-			<Image source={require("./ok1.jpg")} style={{width: '100%', height: '100%'}} resizeMode='contain' pixels={{width: 2000, height: 2000}}/>
+			<Image source={require("./ok2.jpg")} style={{width: '100%', height: '100%'}} resizeMode='contain' pixels={{width: 2000, height: 2000}}/>
 		</View>
         <AndroidBackButton
           onPress={() => {
