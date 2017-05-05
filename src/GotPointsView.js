@@ -28,7 +28,7 @@ class GotPointsView extends Component {
             </View>
           </View>
           <View style={{padding: 20}}>
-            <Button onPress={() => this.props.navigator.pop()}
+            <Button onPress={() => this.props.navigator.resetTo({id: 'Main'})}
                 title="Jes!"
                 color="#8BC34A"
                 accessibilityLabel="Siirry takaisin päänäkymään"
@@ -37,7 +37,7 @@ class GotPointsView extends Component {
         </View>
         <AndroidBackButton
           onPress={() => {
-            this.props.navigator.pop()
+            this.props.navigator.resetTo({id: 'Main'});
             return true;
           }} />
       </View>

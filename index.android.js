@@ -14,6 +14,7 @@ import GotPointsView from './src/GotPointsView';
 import BreakView from './src/BreakView';
 import ProductBoughtView from './src/ProductBoughtView';
 import pointStore from './src/PointStore';
+import BrowserView from './src/BrowserView';
 
 
 const store = createStore(pointStore);
@@ -23,10 +24,10 @@ class must extends Component {
     var nfcListener = DeviceEventEmitter.addListener('NFCCardID', (data) => {
       console.log("NFC ID", data.id);
 
-      const pistepompeliId = "046F7C52872680";
+      const pistepompeliId = "04435449C72480"; //046F7C52872680
 
       if (data.id === pistepompeliId) {
-        this.refs.nav.push({id: 'GotPoints', points: 1000});
+        //this.refs.nav.push({id: 'GotPoints', points: 1000});
       }
     });
   }
@@ -60,6 +61,8 @@ class must extends Component {
         return <BreakView navigator={navigator} />;
       case 'ProductBought':
         return <ProductBoughtView navigator={navigator} product={route.product} />;
+	  case 'Browser':
+		return <BrowserView navigator={navigator} product={route.product} />;
     }
   }
 }

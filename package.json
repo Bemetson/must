@@ -11,8 +11,10 @@
     "react-native": "0.42.3",
     "react-native-android-back-button": "^0.3.0",
     "react-native-image-zoom": "^0.32.0",
+    "react-native-loading-spinner-overlay": "^0.5.0",
     "react-native-photo-view": "^1.2.0",
     "react-native-transformable-image": "0.0.18",
+    "react-native-webbrowser": "0.0.6",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0"
   },

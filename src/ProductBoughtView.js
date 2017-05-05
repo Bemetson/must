@@ -27,7 +27,7 @@ class ProductBoughtView extends Component {
             </View>
           </View>
           <View style={{padding: 20}}>
-            <Button onPress={() => this.props.navigator.popN(2)}
+            <Button onPress={() => this.props.navigator.resetTo({id: 'Main'})}
                 title="OK"
                 color="#8BC34A"
                 accessibilityLabel="Siirry takaisin päänäkymään"
@@ -36,7 +36,7 @@ class ProductBoughtView extends Component {
         </View>
         <AndroidBackButton
           onPress={() => {
-            this.props.navigator.popN(2);
+            this.props.navigator.resetTo({id: 'Main'});
             return true;
           }} />
       </View>

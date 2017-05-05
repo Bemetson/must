@@ -19,29 +19,41 @@ const itemHeight = 170;
 
 const products = [
   {
+	image: require("./aikajepa.jpg"),
+    imageMargin: 10,
+    name: "SCI-Bundle \n SPECIAL \n\n Vain tänään!",
+    price: 1000,
+	weblink: "https://liikkuvatoimisto2.wordpress.com/ryhman-esittely/"
+  },
+  {
     image: require("./unisport-logo.jpg"),
     imageMargin: 0,
     name: "Unisport kertalippu",
-    price: 1000,
+    price: 10000,
+	weblink: "https://unisport.fi/?page=liikumeilla#62828886"
   },
   {
     image: require("./vitamin-well-square.jpg"),
     imageMargin: 5,
     name: "Vitamin Well",
-    price: 1000,
+    price: 15000,
+	weblink: "https://www.vitaminwell.fi/vitamin-well/"
   },
   {
-    image: require("./fressi.jpg"),
+	image: require("./fressi.jpg"),
     imageMargin: 10,
     name: "Fressi kertalippu",
-    price: 1000,
+    price: 10000,
+	weblink: "http://www.fressi.fi/kokeile-3-paivaa-veloituksetta/"
   },
   {
     image: require("./helsingin-kehostudio.jpg"),
     imageMargin: 0,
     name: "Helsingin Kehostudio hieronta",
-    price: 1000,
+    price: 10000,
+	weblink: "http://www.helsinginkehostudio.fi/"
   },
+  
 ];
 
 class MainView extends Component {
@@ -56,13 +68,11 @@ class MainView extends Component {
 		  <Text style={{textAlign: 'center', color: '#333', fontWeight: 'bold', fontSize: 20}}>
            {this.props.points} p
           </Text>
-		  <Text style={{textAlign: 'center', color: '#333', fontWeight: 'bold', fontSize: 20, color: '#8BC34A'}}>
-           Nyt on tauko!
-          </Text>
-		  <View style={{marginBottom: '0%', marginLeft: '10%', marginRight: '10%'}}>
+		 
+		  <View style={{marginBottom: '0%', marginLeft: '10%', marginRight: '10%', marginTop: '5%'}}>
 		  <Button
 			onPress={ () => {this.props.navigator.push({id: 'Break'});}}
-			title='Näytä pistepömpelin paikka'
+			title='Tauko! Näytä pömpelini kartalla'
 			color='#8BC34A'
 		  />
 		  </View>
