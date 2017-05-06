@@ -21,7 +21,7 @@ class ProductView extends Component {
       this.nfcListener = DeviceEventEmitter.addListener('NFCCardID', (data) => {
         console.log("NFC ID", data.id);
 
-        const automaattiId = "0215160E";
+        const automaattiId = "02190B17";
 
         if (data.id === automaattiId) {
           this.props.navigator.push({id: 'ProductBought', product: this.props.product});

@@ -20,7 +20,7 @@ class BreakView extends Component {
 	  this.nfcListener = DeviceEventEmitter.addListener('NFCCardID', (data) => {
         console.log("NFC ID", data.id);
 
-        const pistepompeliId = "04435449C72480"; //046F7C52872680
+        const pistepompeliId = "046F7C52872680"; //046F7C52872680
 
       if (data.id === pistepompeliId) {
         this.props.navigator.push({id: 'GotPoints', points: 1000});
