@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   Navigator,
-  DeviceEventEmitter,
 } from 'react-native';
 
 import { createStore } from 'redux';
@@ -20,23 +19,6 @@ import BrowserView from './src/BrowserView';
 const store = createStore(pointStore);
 
 class must extends Component {
-  componentWillMount() {
-    var nfcListener = DeviceEventEmitter.addListener('NFCCardID', (data) => {
-      console.log("NFC ID", data.id);
-
-      const pistepompeliId = "04435449C72480"; //046F7C52872680
-
-      if (data.id === pistepompeliId) {
-        //this.refs.nav.push({id: 'GotPoints', points: 1000});
-      }
-    });
-  }
-  componentWillUnmount() {
-    this.nfcListener.remove();
-  }
-
-
-
   render() {
     return (
       <Provider store={store}>
@@ -61,8 +43,8 @@ class must extends Component {
         return <BreakView navigator={navigator} />;
       case 'ProductBought':
         return <ProductBoughtView navigator={navigator} product={route.product} />;
-	  case 'Browser':
-		return <BrowserView navigator={navigator} product={route.product} />;
+      case 'Browser':
+        return <BrowserView navigator={navigator} product={route.product} />;
     }
   }
 }

@@ -16,13 +16,18 @@ import Image from 'react-native-transformable-image';
 class BreakView extends Component {
 
   componentWillMount() {
-	  this.nfcListener = null;
-	  this.nfcListener = DeviceEventEmitter.addListener('NFCCardID', (data) => {
+    this.nfcListener = DeviceEventEmitter.addListener('NFCCardID', (data) => {
         console.log("NFC ID", data.id);
 
-        const pistepompeliId = "046F7C52872680"; //046F7C52872680
+        const pistepompeliIds = [
+          "049316E2072980",
+          "047D16E2072980",
+          "049216E2072980",
+          "04A816E2072980",
+          "04BC16E2072980",
+        ];
 
-      if (data.id === pistepompeliId) {
+      if (pistepompeliIds.indexOf(data.id) != -1) {
         this.props.navigator.push({id: 'GotPoints', points: 1000});
       }
       });

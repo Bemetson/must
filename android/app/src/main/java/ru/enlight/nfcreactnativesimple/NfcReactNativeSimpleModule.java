@@ -49,12 +49,14 @@ class NfcReactNativeSimpleModule extends ReactContextBaseJavaModule implements A
 
 	      Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 
-        byte[] id = tag.getId();
-        String serialNumber = bytesToHex(id);
-        WritableMap idData = Arguments.createMap();
-        idData.putString("id", serialNumber);
+        if (tag != null) {
+          byte[] id = tag.getId();
+          String serialNumber = bytesToHex(id);
+          WritableMap idData = Arguments.createMap();
+          idData.putString("id", serialNumber);
 
-        sendEvent(this.reactContext, "NFCCardID", idData);
+          sendEvent(this.reactContext, "NFCCardID", idData);
+        }
 
     }//onNewIntent()
 
