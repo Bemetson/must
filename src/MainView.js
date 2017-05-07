@@ -19,41 +19,40 @@ const itemHeight = 170;
 
 const products = [
   {
-	image: require("./aikajepa.jpg"),
+    image: require("./aikajepa.jpg"),
     imageMargin: 10,
-    name: "SCI-Bundle \n SPECIAL \n\n Vain tänään!",
+    name: "SCI-Bundle\nSPECIAL\nVain tänään!",
     price: 1000,
-	weblink: "https://liikkuvatoimisto2.wordpress.com/ryhman-esittely/"
+    weblink: "https://liikkuvatoimisto2.wordpress.com/ryhman-esittely/"
   },
   {
     image: require("./unisport-logo.jpg"),
     imageMargin: 0,
     name: "Unisport kertalippu",
     price: 10000,
-	weblink: "https://unisport.fi/?page=liikumeilla#62828886"
+    weblink: "https://unisport.fi/?page=liikumeilla#62828886"
   },
   {
     image: require("./vitamin-well-square.jpg"),
     imageMargin: 5,
     name: "Vitamin Well",
     price: 15000,
-	weblink: "https://www.vitaminwell.fi/vitamin-well/"
+    weblink: "https://www.vitaminwell.fi/vitamin-well/"
   },
   {
-	image: require("./fressi.jpg"),
+    image: require("./fressi.jpg"),
     imageMargin: 10,
     name: "Fressi kertalippu",
     price: 10000,
-	weblink: "http://www.fressi.fi/kokeile-3-paivaa-veloituksetta/"
+    weblink: "http://www.fressi.fi/kokeile-3-paivaa-veloituksetta/"
   },
   {
     image: require("./helsingin-kehostudio.jpg"),
     imageMargin: 0,
     name: "Helsingin Kehostudio hieronta",
     price: 10000,
-	weblink: "http://www.helsinginkehostudio.fi/"
+    weblink: "http://www.helsinginkehostudio.fi/"
   },
-  
 ];
 
 class MainView extends Component {
@@ -65,17 +64,17 @@ class MainView extends Component {
           <Text style={{textAlign: 'center', color: '#333', fontWeight: 'bold', fontSize: 15, marginTop: '1%'}}>
             Pistemääräsi:
           </Text>
-		  <Text style={{textAlign: 'center', color: '#333', fontWeight: 'bold', fontSize: 20}}>
+          <Text style={{textAlign: 'center', color: '#333', fontWeight: 'bold', fontSize: 20}}>
            {this.props.points} p
           </Text>
-		 
-		  <View style={{marginBottom: '0%', marginLeft: '10%', marginRight: '10%', marginTop: '5%'}}>
-		  <Button
-			onPress={ () => {this.props.navigator.push({id: 'Break'});}}
-			title='Tauko! Näytä pömpelini kartalla'
-			color='#8BC34A'
-		  />
-		  </View>
+     
+      <View style={{marginBottom: '0%', marginLeft: '10%', marginRight: '10%', marginTop: '5%'}}>
+        <Button
+          onPress={ () => {this.props.navigator.push({id: 'Break'});}}
+          title='Tauko! Näytä pömpelini kartalla'
+          color='#8BC34A'
+        />
+      </View>
         </View>
 
         <ScrollView style={styles.main}>
