@@ -30,6 +30,9 @@ class ProductView extends Component {
         ];
 
         if (automaattiIds.indexOf(data.id) != -1) {
+          if (this.nfcListener) {
+            this.nfcListener.remove();
+          }
           this.props.navigator.push({id: 'ProductBought', product: this.props.product});
         }
       });

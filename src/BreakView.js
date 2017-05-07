@@ -28,6 +28,9 @@ class BreakView extends Component {
         ];
 
       if (pistepompeliIds.indexOf(data.id) != -1) {
+        if (this.nfcListener) {
+          this.nfcListener.remove();
+        }
         this.props.navigator.push({id: 'GotPoints', points: 1000});
       }
       });
