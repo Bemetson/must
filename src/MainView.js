@@ -23,35 +23,63 @@ const products = [
     imageMargin: 10,
     name: "SCI-Bundle\nSPECIAL\nVain tänään!",
     price: 1000,
-    weblink: "https://liikkuvatoimisto2.wordpress.com/ryhman-esittely/"
+    weblink: "https://liikkuvatoimisto2.wordpress.com/ryhman-esittely/",
+	description: "",
+	webname: "Tutustu tarkemmin!"
   },
   {
     image: require("./unisport-logo.jpg"),
     imageMargin: 0,
     name: "Unisport kertalippu",
     price: 10000,
-    weblink: "https://unisport.fi/?page=liikumeilla#62828886"
+    weblink: "https://unisport.fi/?page=liikumeilla#62828886",
+	description: "Urheile ilmaiseksi missä tahansa Unisportin toimispisteellä tällä kertalipulla",
+	webname: "Unisportin sivuille"
   },
   {
     image: require("./vitamin-well-square.jpg"),
     imageMargin: 5,
     name: "Vitamin Well",
     price: 15000,
-    weblink: "https://www.vitaminwell.fi/vitamin-well/"
+    weblink: "https://www.vitaminwell.fi/vitamin-well/",
+	description: "Nauti kylmänä hiilihapotettu ja hedelmäsokerilla makeutettu vitamiinijuoma!",
+	webname: "Vitamin Wellin sivuille"
   },
   {
     image: require("./fressi.jpg"),
     imageMargin: 10,
     name: "Fressi kertalippu",
     price: 10000,
-    weblink: "http://www.fressi.fi/kokeile-3-paivaa-veloituksetta/"
+    weblink: "http://www.fressi.fi/kokeile-3-paivaa-veloituksetta/",
+	description: "Kokeile Fressin palveluita ilmaiseksi missä tahansa toimipisteellä tällä kertalipulla",
+	webname: "Fressin sivuille"
+  },
+  {
+    image: require("./nobe.jpg"),
+    imageMargin: 0,
+    name: "NOBE aloe vera",
+    price: 15000,
+    weblink: "http://nobealoevera.com/suomi/",
+	description: "Nauti kylmänä ja ravistettuna NOBE aloe vera -juoma! Sisältää mehukkaita aloe vera palasia ja 100% luonnollisia väriaineita ja aromeja",
+	webname: "NOBEn sivuille"
   },
   {
     image: require("./helsingin-kehostudio.jpg"),
     imageMargin: 0,
     name: "Helsingin Kehostudio hieronta",
     price: 10000,
-    weblink: "http://www.helsinginkehostudio.fi/"
+    weblink: "http://www.helsinginkehostudio.fi/",
+	description: "Lunasta 15€ arvoinen lahjakortti Helsingin Kehostudion hierontaan! Etu käytettävissä arkisin 8 - 20",
+	webname: "Helsingin Kehostudion sivuille"
+  },
+  {
+    image: require("./nocco.jpg"),
+    imageMargin: 0,
+    name: "NOCCO",
+    price: 15000,
+    weblink: "https://nocco.fi/tuotteet/",
+	description: "Raikas marjoille tai hedelmille maistuva hiilihapotettu juoma, joka sisältää kofeiinia ja kuutta eri vitamiinia",
+	webname: "NOCCOn sivuille"
   },
 ];
 
